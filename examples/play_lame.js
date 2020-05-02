@@ -1,3 +1,4 @@
+var fs = require('fs');
 var AirTunes = require('../lib/'),
     lame = require('lame'),
     request = require('request')
@@ -43,7 +44,7 @@ device.on('status', function(status) {
 
 
 
-  request(argv.file)
+  fs.createReadStream(argv.file)
     .pipe(new lame.Decoder)    
 //    .on('format', console.log)
     .pipe(airtunes);
