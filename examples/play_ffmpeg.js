@@ -1,4 +1,4 @@
-var airtunes = require('../lib/'),
+var AirTunes = require('../lib/'),
     spawn = require('child_process').spawn,
     argv = require('optimist')
       .usage('Usage: $0 --host [host] --port [num] --ffmpeg [path] --file [path] --volume [num] --password [string]')
@@ -8,6 +8,7 @@ var airtunes = require('../lib/'),
       .default('file', './wakeup.mp3')
       .demand(['host'])
       .argv;
+var airtunes = new AirTunes();
 
 console.log('adding device: ' + argv.host + ':' + argv.port);
 var device = airtunes.add(argv.host, argv);
